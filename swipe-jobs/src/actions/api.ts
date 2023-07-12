@@ -14,7 +14,35 @@ export const fetchWorkerProfile = () => {
     });
 };
 // show all jobs
-
+export const fetchJobs = () => {
+  axios
+    .get(`${baseUrl}/api/worker/${userId}/matches`)
+    .then((res: AxiosResponse) => {
+      return res;
+    })
+    .catch((error: AxiosError) => {
+      return error;
+    });
+};
 // accept job
-
+export const acceptJobProfile = (jobId: string) => {
+  axios
+    .get(`${baseUrl}/api/worker/${userId}/job${jobId}/accept`)
+    .then((res: AxiosResponse) => {
+      return res;
+    })
+    .catch((error: AxiosError) => {
+      return error;
+    });
+};
 // reject job
+export const rejectJobProfile = (jobId: string) => {
+  axios
+    .get(`${baseUrl}/api/worker/${userId}/job${jobId}/reject`)
+    .then((res: AxiosResponse) => {
+      return res;
+    })
+    .catch((error: AxiosError) => {
+      return error;
+    });
+};
