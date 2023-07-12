@@ -27,7 +27,7 @@ export const fetchJobs = () => {
 // accept job
 export const acceptJobProfile = (jobId: string) => {
   axios
-    .get(`${baseUrl}/api/worker/${userId}/job${jobId}/accept`)
+    .post(`${baseUrl}/api/worker/${userId}/job${jobId}/accept`)
     .then((res: AxiosResponse) => {
       return res;
     })
@@ -38,7 +38,7 @@ export const acceptJobProfile = (jobId: string) => {
 // reject job
 export const rejectJobProfile = (jobId: string) => {
   axios
-    .get(`${baseUrl}/api/worker/${userId}/job${jobId}/reject`)
+    .post(`${baseUrl}/api/worker/${userId}/job${jobId}/reject`)
     .then((res: AxiosResponse) => {
       return res;
     })
