@@ -1,4 +1,5 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
+import get from 'lodash.get';
 const baseUrl = 'https://test.swipejobs.com';
 const userId = process.env.REACT_APP_USER_ID;
 
@@ -15,10 +16,11 @@ export const fetchWorkerProfile = async () => {
 };
 // show all jobs
 export const fetchJobs = () => {
-  axios
+  return axios
     .get(`${baseUrl}/api/worker/${userId}/matches`)
     .then((res: AxiosResponse) => {
-      return res;
+      const data = get(res, 'data', []);
+      return data;
     })
     .catch((error: AxiosError) => {
       return error;
